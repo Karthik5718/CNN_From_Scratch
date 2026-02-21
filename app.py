@@ -56,5 +56,5 @@ if uploaded_file is not None:
     image = image.reshape(1, 28, 28)
     output = predict(network, image)
     prediction = np.argmax(output)
-    st.image(image, width=150, clamp=True)
+    st.image(image.reshape(28, 28), width=150, clamp=True)
     st.success(f"Predicted Digit: {prediction}")
