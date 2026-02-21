@@ -1,6 +1,8 @@
 import numpy as np
+import pickle
 from keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
+
 from dense import Dense
 from convolutional import Convolutional
 from reshape import Reshape
@@ -42,3 +44,5 @@ train(
 for x, y in zip(x_test, y_test):
     output = predict(network, x)
     print(f"pred: {np.argmax(output)}, true: {np.argmax(y)}")
+with open("cnn_model.pkl", "wb") as f:
+    pickle.dump(network, f)
